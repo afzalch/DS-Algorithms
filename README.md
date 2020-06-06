@@ -1,14 +1,15 @@
-Want to give a huge shoutout to Kevin Naugton Jr and Kumail Naqvi who were key figures in my design and notes for this file!
+Want to give a huge shoutout to Kevin Naughton Jr and Kumail Naqvi who were key figures in my design and notes for this file!
 
 https://github.com/kdn251
 https://github.com/kumailn
 
 ## Table of Contents
 - [Data Structures](#data-structures)
+- [Dynamic Programming](#dynamic-programming)
+- [Greedy Algorithms](#greedy-algorithms)
 - [Algorithms](#algorithms)
   - [Sorting](#sorting)
   - [Graph](#graph-algorithms)
-- [Greedy Algorithms](#greedy-algorithms)
 - [Runtime Analysis](#runtime-analysis)
 
 ## Data Structures
@@ -142,6 +143,64 @@ or equal to those of the children and the lowest key is in the root node
 
 <img src="/images/graph.png?raw=true" alt="Graph" width="400" height="500">
 
+## Dynamic Programming
+* Will always result in optimal solution, it would go through all possible solutions and return optimal solution
+* Can think of it sort of like "careful brute force"
+
+* Divides the problem into sub-problems similar to Divide and Conquer
+    * Difference is that there are overlapping/repeating subproblems (not the case in D&C)
+* Store solutions of sub-problems so in the future, you can just use the solution instead of having to calculate again
+* Very rare scenarios in which DP can be used for a solution 
+* Typically 3 steps:
+  * Recursion
+  * Store (Memoize)
+  * Bottom-up
+#### Story Example
+*writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper*
+"What's that equal to?"
+*counting* "Eight!"
+*writes down another "1+" on the left*
+"What about that?"
+*quickly* "Nine!"
+"How'd you know it was nine so fast?"
+"You just added one more"
+"So you didn't need to recount because you remembered there were eight! 
+#### Summary of story
+Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'" By the way this remembering of values is called momoization, the hard part comes with knowing what to memoize and how to apply it
+
+
+1) Naive Recursive
+2) Memoization - can be done on any recursive algorithm
+* Whenever we compute a fibonacci number, we compute it and store it in dictionary
+* Before we compute a fibonacci number, we first check to see if it is in dictionary and if it is then, we return it
+* Don't need to worry about recurrence and the running time can be broken down into
+O(n) = # of subproblems * (Time each subproblem takes)
+O(n) in Fibonacci case since there are n subproblems and each take constant or O(1) time
+3) Bottom-up
+* 
+
+
+## Greedy Algorithms
+* *Greedy Algorithms* are algorithms that make locally optimal choices at each step in the hope of eventually reaching the globally optimal solution
+* Divides the problem into sub-problems similar to Divide and Conquer
+* Problems must exhibit two properties in order to implement a Greedy solution:
+ * Optimal Substructure
+    * An optimal solution to the problem contains optimal solutions to the given problem's subproblems
+ * The Greedy Property
+    * An optimal solution is reached by "greedily" choosing the locally optimal choice without ever reconsidering previous choices
+* Example - Coin Change
+    * Given a target amount V cents and a list of denominations of n coins, i.e. we have coinValue[i] (in cents) for coin types i from [0...n - 1],
+      what is the minimum number of coins that we must use to represent amount V? Assume that we have an unlimited supply of coins of any type
+    * Coins - Penny (1 cent), Nickel (5 cents), Dime (10 cents), Quarter (25 cents)
+    * Assume V = 41. We can use the Greedy algorithm of continuously selecting the largest coin denomination less than or equal to V, subtract that
+      coin's value from V, and repeat.
+    * V = 41 | 0 coins used
+    * V = 16 | 1 coin used (41 - 25 = 16)
+    * V = 6  | 2 coins used (16 - 10 = 6)
+    * V = 1  | 3 coins used (6 - 5 = 1)
+    * V = 0  | 4 coins used (1 - 1 = 0)
+    * Using this algorithm, we arrive at a total of 4 coins which is optimal
+
 ## Algorithms
 
 ### Sorting
@@ -242,64 +301,6 @@ or equal to those of the children and the lowest key is in the root node
 * Time Complexity: `O(|E|log|V|)`
 
 ![Alt text](/images/kruskal.gif?raw=true "Kruskal's Algorithm")
-
-## Dynamic Programming
-* Will always result in optimal solution, it would go through all possible solutions and return optimal solution
-* Can think of it sort of like "careful brute force"
-
-* Divides the problem into sub-problems similar to Divide and Conquer
-    * Difference is that there are overlapping/repeating subproblems (not the case in D&C)
-* Store solutions of sub-problems so in the future, you can just use the solution instead of having to calculate again
-* Very rare scenarios in which DP can be used for a solution 
-* Typically 3 steps:
-  * Recursion
-  * Store (Memoize)
-  * Bottom-up
-#### Story Example
-*writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper*
-"What's that equal to?"
-*counting* "Eight!"
-*writes down another "1+" on the left*
-"What about that?"
-*quickly* "Nine!"
-"How'd you know it was nine so fast?"
-"You just added one more"
-"So you didn't need to recount because you remembered there were eight! 
-#### Summary of story
-Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'" By the way this remembering of values is called momoization, the hard part comes with knowing what to memoize and how to apply it
-
-
-1) Naive Recursive
-2) Memoization - can be done on any recursive algorithm
-* Whenever we compute a fibonacci number, we compute it and store it in dictionary
-* Before we compute a fibonacci number, we first check to see if it is in dictionary and if it is then, we return it
-* Don't need to worry about recurrence and the running time can be broken down into
-O(n) = # of subproblems * (Time each subproblem takes)
-O(n) in Fibonacci case since there are n subproblems and each take constant or O(1) time
-3) Bottom-up
-* 
-
-
-## Greedy Algorithms
-* *Greedy Algorithms* are algorithms that make locally optimal choices at each step in the hope of eventually reaching the globally optimal solution
-* Divides the problem into sub-problems similar to Divide and Conquer
-* Problems must exhibit two properties in order to implement a Greedy solution:
- * Optimal Substructure
-    * An optimal solution to the problem contains optimal solutions to the given problem's subproblems
- * The Greedy Property
-    * An optimal solution is reached by "greedily" choosing the locally optimal choice without ever reconsidering previous choices
-* Example - Coin Change
-    * Given a target amount V cents and a list of denominations of n coins, i.e. we have coinValue[i] (in cents) for coin types i from [0...n - 1],
-      what is the minimum number of coins that we must use to represent amount V? Assume that we have an unlimited supply of coins of any type
-    * Coins - Penny (1 cent), Nickel (5 cents), Dime (10 cents), Quarter (25 cents)
-    * Assume V = 41. We can use the Greedy algorithm of continuously selecting the largest coin denomination less than or equal to V, subtract that
-      coin's value from V, and repeat.
-    * V = 41 | 0 coins used
-    * V = 16 | 1 coin used (41 - 25 = 16)
-    * V = 6  | 2 coins used (16 - 10 = 6)
-    * V = 1  | 3 coins used (6 - 5 = 1)
-    * V = 0  | 4 coins used (1 - 1 = 0)
-    * Using this algorithm, we arrive at a total of 4 coins which is optimal
 
 ## Bitmasks
 * Bitmasking is a technique used to perform operations at the bit level. Leveraging bitmasks often leads to faster runtime complexity and
