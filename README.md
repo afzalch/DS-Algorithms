@@ -6,6 +6,8 @@ https://github.com/kumailn
 ## Table of Contents
 - [Data Structures](#data-structures)
 - [Algorithms](#algorithms)
+  - [Sorting](#sorting)
+  - [Graph](#graph-algorithms)
 - [Greedy Algorithms](#greedy-algorithms)
 - [Runtime Analysis](#runtime-analysis)
 
@@ -33,6 +35,8 @@ https://github.com/kumailn
    * Insert: `O(1)`
    * Remove: `O(1)`
 
+![Alt text](/images/stack.gif?raw=true "Stack")
+
 ### Queue
  * A *Queue* is a collection of elements, supporting two principle operations: *enqueue*, which inserts an element
    into the queue, and *dequeue*, which removes an element from the queue
@@ -53,6 +57,8 @@ https://github.com/kumailn
  * **Perfect Binary Tree**: a binary tree in which all interior nodes have two children and all leave have the same depth
  * **Complete Tree**: a binary tree in which every level *except possibly the last* is full and all nodes in the last
    level are as far left as possible
+
+![Alt text](/images/binary-trees.png "Binary Tree")
 
 ### Binary Search Tree
  * A binary search tree, sometimes called BST, is a type of binary tree which maintains the property that the value in each
@@ -84,7 +90,7 @@ https://github.com/kumailn
   * Range Sum: `O(log(n))`
   * Update: `O(log(n))`
 
-![Alt text](/images/fenwickTree.png?raw=true "Fenwick Tree")
+![Alt text](/images/fenwickTree.png "Fenwick Tree")
 
 ### Segment Tree
 * A Segment tree, is a tree data structure for storing intervals, or segments. It allows querying which of the stored segments contain
@@ -237,8 +243,46 @@ or equal to those of the children and the lowest key is in the root node
 
 ![Alt text](/images/kruskal.gif?raw=true "Kruskal's Algorithm")
 
+## Dynamic Programming
+* Will always result in optimal solution, it would go through all possible solutions and return optimal solution
+* Can think of it sort of like "careful brute force"
+
+* Divides the problem into sub-problems similar to Divide and Conquer
+    * Difference is that there are overlapping/repeating subproblems (not the case in D&C)
+* Store solutions of sub-problems so in the future, you can just use the solution instead of having to calculate again
+* Very rare scenarios in which DP can be used for a solution 
+* Typically 3 steps:
+  * Recursion
+  * Store (Memoize)
+  * Bottom-up
+#### Story Example
+*writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper*
+"What's that equal to?"
+*counting* "Eight!"
+*writes down another "1+" on the left*
+"What about that?"
+*quickly* "Nine!"
+"How'd you know it was nine so fast?"
+"You just added one more"
+"So you didn't need to recount because you remembered there were eight! 
+#### Summary of story
+Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'" By the way this remembering of values is called momoization, the hard part comes with knowing what to memoize and how to apply it
+
+
+1) Naive Recursive
+2) Memoization - can be done on any recursive algorithm
+* Whenever we compute a fibonacci number, we compute it and store it in dictionary
+* Before we compute a fibonacci number, we first check to see if it is in dictionary and if it is then, we return it
+* Don't need to worry about recurrence and the running time can be broken down into
+O(n) = # of subproblems * (Time each subproblem takes)
+O(n) in Fibonacci case since there are n subproblems and each take constant or O(1) time
+3) Bottom-up
+* 
+
+
 ## Greedy Algorithms
 * *Greedy Algorithms* are algorithms that make locally optimal choices at each step in the hope of eventually reaching the globally optimal solution
+* Divides the problem into sub-problems similar to Divide and Conquer
 * Problems must exhibit two properties in order to implement a Greedy solution:
  * Optimal Substructure
     * An optimal solution to the problem contains optimal solutions to the given problem's subproblems
