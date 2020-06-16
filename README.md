@@ -151,10 +151,8 @@ or equal to those of the children and the lowest key is in the root node
     * Difference is that there are overlapping/repeating subproblems (not the case in D&C)
 * Store solutions of sub-problems so in the future, you can just use the solution instead of having to calculate again
 * Very rare scenarios in which DP can be used for a solution 
-* Typically 3 steps:
-  * Recursion
-  * Store (Memoize)
-  * Bottom-up
+* DP consists of recursion + memoization + guessing
+  * Key is that guessing means guessing/trying all ways
 #### Story Example
 *writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper*
 "What's that equal to?"
@@ -168,7 +166,10 @@ or equal to those of the children and the lowest key is in the root node
 #### Summary of story
 Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'" By the way this remembering of values is called momoization, the hard part comes with knowing what to memoize and how to apply it
 
-
+* 3 ways:
+  * Recursion
+  * Store (Memoize)
+  * Bottom-up
 1) Naive Recursive
 2) Memoization - can be done on any recursive algorithm
 * Whenever we compute a fibonacci number, we compute it and store it in dictionary
@@ -176,9 +177,44 @@ Dynamic Programming is just a fancy way to say 'remembering stuff to save time l
 * Don't need to worry about recurrence and the running time can be broken down into
 O(n) = # of subproblems * (Time each subproblem takes)
 O(n) in Fibonacci case since there are n subproblems and each take constant or O(1) time
-3) Bottom-up
-* 
+````
+memo = {} // dictionary where stored values will be 
+fib(n):
+  if n in memo: 
+    return memo[n]
+  if n <= 2: 
+    f = 1
+  else: 
+    f = fib(n-1)+fib(n-2)
+  memo[n]=f
+  return f 
+````
 
+3) Bottom-up
+*  Does exact same computation as memoized version
+* topologJical sort of the subproblem dependency DAG
+
+````
+memo = {} // dictionary where stored values will be 
+fib(n):
+  for k in range(1,n+1):
+    if k <= 2: 
+      f = 1
+    else: 
+      f = fib[n-1]+fib[n-2]
+    memo[k]=f
+  return memo[n]
+````
+#### Using Dynamic Programming
+Dynamic programming is helpful for solving optimization problems, so often, the best way to recognize a problem as solvable by dynamic programming is to recognize that a problem is an optimization problem.
+
+Notice how many of the problems are optimization problems. With optimization problems, you see terms like shortest/longest, minimized/maximized, least/most, fewest/greatest, biggest/smallest, etc.
+
+When you see these kind of terms, the problem may ask for a specific number (like "find the minimum number of edit operations") or it may ask for a result (like "find the longest common subsequence"). The latter type of problem is harder to recognize as a dynamic programming problem, so you have to pay attention to anything that sounds like optimization.
+
+When you have an optimization problem, first identify what you're optimizing for. Once you realize what you're optimizing for, you have to decide how easy it is to perform that optimization. Sometimes, the greedy approach is sufficient for an optimal solution. If the problem seems pretty difficult and you would have trouble coming up with the answer on your own without a computer or calculus, then dynamic programming is probably a good candidate.
+
+Dynamic programming simply takes the brute force approach, identifies repeated work, and eliminates the repetition. So before you even start to formulate the problem as a dynamic programming problem, think about what the brute force solution might look like. Could there possibly be repeated substeps in the brute force solution? If so, try to formulate your problem as a dynamic programming problem.
 
 ## Greedy Algorithms
 * *Greedy Algorithms* are algorithms that make locally optimal choices at each step in the hope of eventually reaching the globally optimal solution
