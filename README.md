@@ -169,13 +169,13 @@ or equal to those of the children and the lowest key is in the root node
 #### Bipartite Graph
 * One whose vertices can be split into two independent groups U, V such that every edge connects between U and V
 
-<img src="/images/bipartite-graph.png?raw=true" alt="Graph">
+<img src="/images/bipartite-graph.png?raw=true" alt="Graph" width="400" height="200">
 
 #### Complete Graph
 * One where there is an edge between every pair of nodes
 * It is denoted using K<sub>n</sub> as shown by images below
 
-<img src="/images/complete-graphs.png?raw=true" alt="Graph" width="400" height="270">
+<img src="/images/complete-graphs.png?raw=true" alt="Graph" width="400" height="150">
 
 ## Dynamic Programming
 * Will always result in optimal solution, it would go through all possible solutions and return optimal solution
