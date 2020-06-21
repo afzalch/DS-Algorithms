@@ -5,12 +5,15 @@ https://github.com/kumailn
 
 ## Table of Contents
 - [Data Structures](#data-structures)
+  - [Graphs](#graphs)
 - [Dynamic Programming](#dynamic-programming)
 - [Greedy Algorithms](#greedy-algorithms)
 - [Algorithms](#algorithms)
   - [Sorting](#sorting)
   - [Graph](#graph-algorithms)
 - [Runtime Analysis](#runtime-analysis)
+- [Definitions](#definitions)
+
 
 ## Data Structures
 ### Linked List
@@ -49,7 +52,10 @@ https://github.com/kumailn
    * Remove: `O(1)`
 
 ### Tree
- * A *Tree* is an undirected, connected, acyclic graph
+ * **A *Tree* is an undirected, connected, acyclic graph**
+
+#### Rooted Tree
+* A tree with a designated root node where every node either points away from or towards the root node 
 
 ### Binary Tree
  * A *Binary Tree* is a tree data structure in which each node has at most two children, which are referred to as
@@ -72,6 +78,15 @@ https://github.com/kumailn
    * Remove: `O(log(n))`
 
 <img src="/images/BST.png?raw=true" alt="Binary Search Tree" width="400" height="500">
+
+
+### AVL Tree
+* Resolves the issue of trees being unbalanced with huge difference in size of subtrees
+* Height of a node - length of longest path from the node to a leaf
+* Requires heights of left and right children of every node to differ by at most of 1  
+Insertions:
+1) Regular BST Insertions
+2) Fix AVL property
 
 ### Trie
 * A trie, sometimes called a radix or prefix tree, is a kind of search tree that is used to store a dynamic set or associative
@@ -131,17 +146,36 @@ or equal to those of the children and the lowest key is in the root node
 
 ![Alt text](/images/hash.png?raw=true "Hashing")
 
-### Graph
+## Graphs
 * A *Graph* is an ordered pair of G = (V, E) comprising a set V of vertices or nodes together with a set E of edges or arcs,
   which are 2-element subsets of V (i.e. an edge is associated with two vertices, and that association takes the form of the
   unordered pair comprising those two vertices)
- * **Undirected Graph**: a graph in which the adjacency relation is symmetric. So if there exists an edge from node u to node
+* There are numerous different types of graphs which are shown and explained in more depth below
+* **Undirected Graph**: a graph in which the adjacency relation is symmetric. So if there exists an edge from node u to node
  v (u -> v), then it is also the case that there exists an edge from node v to node u (v -> u)
- * **Directed Graph**: a graph in which the adjacency relation is not symmetric. So if there exists an edge from node u to node v
+* **Directed Graph**: a graph in which the adjacency relation is not symmetric. So if there exists an edge from node u to node v
  (u -> v), this does *not* imply that there exists an edge from node v to node u (v -> u)
 
 
 <img src="/images/graph.png?raw=true" alt="Graph" width="400" height="500">
+
+* **Weighted Graphs**: A graph with edges that have weights to represent a value such as cost, distance, quantity, etc
+
+<img src="/images/weighted-graph.png?raw=true" alt="Graph" width="400" height="270">
+
+* **Directed Acyclic Graphs**: Directed graph with no cycles
+* Used commonly in representing structures with dependencies such as scheduler, build system, course prerequisites, etc. 
+
+#### Bipartite Graph
+* One whose vertices can be split into two independent groups U, V such that every edge connects between U and V
+
+<img src="/images/bipartite-graph.png?raw=true" alt="Graph">
+
+#### Complete Graph
+* One where there is an edge between every pair of nodes
+* It is denoted using K<sub>n</sub> as shown by images below
+
+<img src="/images/complete-graphs.png?raw=true" alt="Graph" width="400" height="270">
 
 ## Dynamic Programming
 * Will always result in optimal solution, it would go through all possible solutions and return optimal solution
@@ -385,3 +419,8 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 ![Alt text](/images/theta.png?raw=true "Theta Notation")
 
 
+## Definitions
+
+#### Recurrence
+* Describes function in terms of other function calls of the same function with smaller inputs
+* Usually used in divide and conquer algorithms
