@@ -175,7 +175,7 @@ or equal to those of the children and the lowest key is in the root node
 * One where there is an edge between every pair of nodes
 * It is denoted using K<sub>n</sub> as shown by images below
 
-<img src="/images/complete-graphs.png?raw=true" alt="Graph" width="400" height="150">
+<img src="/images/complete-graphs.png?raw=true" alt="Graph" width="600" height="225">
 
 ## Dynamic Programming
 * Will always result in optimal solution, it would go through all possible solutions and return optimal solution
