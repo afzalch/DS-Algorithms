@@ -13,6 +13,8 @@ https://github.com/kumailn
   - [Graph](#graph-algorithms)
 - [Runtime Analysis](#runtime-analysis)
 - [Definitions](#definitions)
+- [Problems](#problems)
+  - [Graphs](#graph-problems)
 
 
 ## Data Structures
@@ -150,20 +152,52 @@ or equal to those of the children and the lowest key is in the root node
 * A *Graph* is an ordered pair of G = (V, E) comprising a set V of vertices or nodes together with a set E of edges or arcs,
   which are 2-element subsets of V (i.e. an edge is associated with two vertices, and that association takes the form of the
   unordered pair comprising those two vertices)
+* Graphs can be stored in countless manners, below are some of the more common ways
+* **Adjacency Matrix**:
+* A matrix of size nxn where n is the number of nodes in the graph
+* For an adjacency matrix m, the cell m[i][j] represents the weight of going from node i to node j 
+
+| Pros |  Cons |
+|---|---------| 
+| Space efficient for dense graphs (complete graphs) | Requires O(V<sup>2</sup>) space|
+| Edge weight lookup is O(1) | Iterating over all the edges takes O(V<sup>2</sup>) time
+| Simplest graph representation | |
+
+* **Adjacency Lists** :
+* A way to represent a graph as a map from nodes to lists of edges.
+* Each node has their own list that contains each edge and weight of the edge
+
+| Pros |  Cons |
+|---|---------| 
+| Space efficient for sparse graphs (complete graphs) | Not very space efficient for dense graphs|
+| Iterating over all the edges is efficient | Edge weight lookup is O(E) |
+| | Slightly more complex graph representation |
+
+* **Edge List** :
+* Way to represent a graph simply as an unordered list of edges
+* Assumes the notation for any triplet 
+
+
 * There are numerous different types of graphs which are shown and explained in more depth below
-* **Undirected Graph**: a graph in which the adjacency relation is symmetric. So if there exists an edge from node u to node
+
+
+#### Undirected Graph: 
+* a graph in which the adjacency relation is symmetric. So if there exists an edge from node u to node
  v (u -> v), then it is also the case that there exists an edge from node v to node u (v -> u)
-* **Directed Graph**: a graph in which the adjacency relation is not symmetric. So if there exists an edge from node u to node v
+#### Directed Graph: 
+* a graph in which the adjacency relation is not symmetric. So if there exists an edge from node u to node v
  (u -> v), this does *not* imply that there exists an edge from node v to node u (v -> u)
 
 
 <img src="/images/graph.png?raw=true" alt="Graph" width="400" height="500">
 
-* **Weighted Graphs**: A graph with edges that have weights to represent a value such as cost, distance, quantity, etc
+#### Weighted Graphs: 
+* A graph with edges that have weights to represent a value such as cost, distance, quantity, etc
 
 <img src="/images/weighted-graph.png?raw=true" alt="Graph" width="400" height="270">
 
-* **Directed Acyclic Graphs**: Directed graph with no cycles
+#### **Directed Acyclic Graphs**: 
+* Directed graph with no cycles
 * Used commonly in representing structures with dependencies such as scheduler, build system, course prerequisites, etc. 
 
 #### Bipartite Graph
@@ -424,3 +458,19 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 #### Recurrence
 * Describes function in terms of other function calls of the same function with smaller inputs
 * Usually used in divide and conquer algorithms
+
+## Problems
+### Graph Problems
+
+#### Shortest Path Problem
+- Given a weighted graph, find the shortest path of edges from node A to node B
+- Algorithms: BFS (unweighted graph), Dijkstra's, Bellman-Ford, Floyd-Warshall, A<sup>*</sup>, and more
+
+#### Connectivity
+- Does there exist a path between node A and node B
+- Typical solution: 
+  - Use union find or any search algorithm (ie DFS, BFS,etc)
+
+#### Negative cycl
+- Does my digraph have any negative cycles
+- Algorithms : Bellman ford and Floyd--Warshall
