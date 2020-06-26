@@ -459,6 +459,10 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 * Describes function in terms of other function calls of the same function with smaller inputs
 * Usually used in divide and conquer algorithms
 
+
+#### Catalan Numbers
+
+
 ## Problems
 ### Graph Problems
 
@@ -471,6 +475,22 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 - Typical solution: 
   - Use union find or any search algorithm (ie DFS, BFS,etc)
 
-#### Negative cycl
+#### Negative cycles
 - Does my digraph have any negative cycles
 - Algorithms : Bellman ford and Floyd--Warshall
+
+#### Bridges
+- A bridge/cut edge is any edge in a graph whose removal increases the number of connected components and can be thought of as a bottleneck/bridge between two sets of vertices
+
+#### Articulation Points
+- An aritculation point / cut vertex is any node in a graph whose removal increases the number of connected components
+
+#### Minimum Spanning Tree
+- A MST is a subset of edges pf a connected edge-weighted graph that connects all the vertices together without any cycle and with the minimum possible total edge weight
+- Algorithms: Kruskal's, Prim. Boruvka's
+
+
+#### Network Flow
+- Find maximum flow through a unique graph called a flow netowrk, network where edge weight represent capacity
+- Assuming we have an infinite source, how much flow can be sent at once, there will be a bottleneck
+- Algorithms: Ford-Fulkerson, Edmonds-Karp, Dinic Algorithms
