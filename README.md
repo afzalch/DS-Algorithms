@@ -18,6 +18,10 @@ https://github.com/kumailn
 
 
 ## Data Structures
+- To find implementations of numerous algorithms and data structures, I would suggest checking out the github page below which contains repositories for numerous different languages such as Python, Java, C++. C, Go, Javascript, and even more!
+
+https://github.com/TheAlgorithms
+
 ### Linked List
  * A *Linked List* is a linear collection of data elements, called nodes, each
    pointing to the next node by means of a pointer. It is a data structure
