@@ -351,6 +351,7 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 
 #### Depth First Search
 * *Depth First Search* is a graph traversal algorithm which explores as far as possible along each branch before backtracking
+* Can be done using a stack or an array of visited nodes
 * Time Complexity: `O(|V| + |E|)`
 
 ![Alt text](/images/dfsbfs.gif?raw=true "DFS / BFS Traversal")
@@ -358,9 +359,8 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 #### Breadth First Search
 * *Breadth First Search* is a graph traversal algorithm which explores the neighbor nodes first, before moving to the next
   level neighbors
+* Can be done using a queue or an array of visited nodes
 * Time Complexity: `O(|V| + |E|)`
-
-![Alt text](/images/dfsbfs.gif?raw=true "DFS / BFS Traversal")
 
 #### Topological Sort
 * *Topological Sort* is the linear ordering of a directed graph's nodes such that for every edge from node u to node v, u
