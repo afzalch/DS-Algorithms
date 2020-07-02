@@ -13,6 +13,7 @@ https://github.com/kumailn
   - [Graph](#graph-algorithms)
 - [Runtime Analysis](#runtime-analysis)
 - [Definitions](#definitions)
+- [Number Theory](#number-theory)
 - [Problems](#problems)
   - [Graphs](#graph-problems)
 
@@ -466,6 +467,10 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 
 
 #### Catalan Numbers
+
+
+
+## Number Theory
 
 
 ## Problems
