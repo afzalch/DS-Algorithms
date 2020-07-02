@@ -1,9 +1,5 @@
-Want to give a huge shoutout to Kevin Naughton Jr and Kumail Naqvi who were key figures in my design and notes for this file!
-
-https://github.com/kdn251
-https://github.com/kumailn
-
 ## Table of Contents
+- [Acknowledgements](#acknowledgements)
 - [Data Structures](#data-structures)
   - [Graphs](#graphs)
 - [Dynamic Programming](#dynamic-programming)
@@ -16,6 +12,13 @@ https://github.com/kumailn
 - [Number Theory](#number-theory)
 - [Problems](#problems)
   - [Graphs](#graph-problems)
+
+
+## Acknowledgements
+Want to give a huge shoutout to Kevin Naughton Jr and Kumail Naqvi who were key figures in my design and notes for this repository
+
+https://github.com/kdn251
+https://github.com/kumailn
 
 
 ## Data Structures
@@ -493,6 +496,7 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 - A bridge/cut edge is any edge in a graph whose removal increases the number of connected components and can be thought of as a bottleneck/bridge between two sets of vertices
 
 #### Articulation Points
+
 - An aritculation point / cut vertex is any node in a graph whose removal increases the number of connected components
 
 #### Minimum Spanning Tree
