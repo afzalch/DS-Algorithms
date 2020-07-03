@@ -1,9 +1,5 @@
-Want to give a huge shoutout to Kevin Naughton Jr and Kumail Naqvi who were key figures in my design and notes for this file!
-
-https://github.com/kdn251
-https://github.com/kumailn
-
 ## Table of Contents
+- [Acknowledgements](#acknowledgements)
 - [Data Structures](#data-structures)
   - [Graphs](#graphs)
 - [Dynamic Programming](#dynamic-programming)
@@ -13,8 +9,16 @@ https://github.com/kumailn
   - [Graph](#graph-algorithms)
 - [Runtime Analysis](#runtime-analysis)
 - [Definitions](#definitions)
+- [Number Theory](#number-theory)
 - [Problems](#problems)
   - [Graphs](#graph-problems)
+
+
+## Acknowledgements
+Want to give a huge shoutout to Kevin Naughton Jr and Kumail Naqvi who were key figures in my design and notes for this repository
+
+https://github.com/kdn251
+https://github.com/kumailn
 
 
 ## Data Structures
@@ -482,6 +486,10 @@ while len(Q) > 0:
 #### Catalan Numbers
 
 
+
+## Number Theory
+
+
 ## Problems
 ### Graph Problems
 
@@ -502,6 +510,7 @@ while len(Q) > 0:
 - A bridge/cut edge is any edge in a graph whose removal increases the number of connected components and can be thought of as a bottleneck/bridge between two sets of vertices
 
 #### Articulation Points
+
 - An aritculation point / cut vertex is any node in a graph whose removal increases the number of connected components
 
 #### Minimum Spanning Tree
