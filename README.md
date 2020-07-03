@@ -367,6 +367,20 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 * Can be done using a queue or an array of visited nodes
 * Time Complexity: `O(|V| + |E|)`
 
+Python using a list as a queue
+```
+Q = []
+Q.append(root)
+while len(Q) > 0:
+    nodes = []
+    for i in range(len(Q)):
+        node = Q.pop(0)
+        nodes.append(node.val)
+        if node.left != None: Q.append(node.left)
+        if node.right != None: Q.append(node.right)
+```
+
+
 #### Topological Sort
 * *Topological Sort* is the linear ordering of a directed graph's nodes such that for every edge from node u to node v, u
   comes before v in the ordering
