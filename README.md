@@ -12,6 +12,8 @@
 - [Number Theory](#number-theory)
 - [Problems](#problems)
   - [Graphs](#graph-problems)
+  - [Bitwise](#bitwise-problems)
+- [Optimizations](#optimizations)
 
 
 ## Acknowledgements
@@ -527,6 +529,10 @@ while len(Q) > 0:
 
 ### Bitwise Problems
 
+
+
 Important operator for problems would be operators such as XOR which is commonly represented like ^
 
 Another common operation that is useful is shifting left and right which is done through the use of << and >> respectively
+
+## Optimizations
