@@ -522,3 +522,10 @@ while len(Q) > 0:
 - Find maximum flow through a unique graph called a flow netowrk, network where edge weight represent capacity
 - Assuming we have an infinite source, how much flow can be sent at once, there will be a bottleneck
 - Algorithms: Ford-Fulkerson, Edmonds-Karp, Dinic Algorithms
+
+
+### Bitwise Problems
+
+Important operator for problems would be operators such as XOR which is commonly represented like ^
+
+Another common operation that is useful is shifting left and right which is done through the use of << and >> respectively
