@@ -369,6 +369,7 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 * *Breadth First Search* is a graph traversal algorithm which explores the neighbor nodes first, before moving to the next
   level neighbors
 * Can be done using a queue or an array of visited nodes
+* Used for level order problems (ie. )
 * Time Complexity: `O(|V| + |E|)`
 
 Python using a list as a queue
