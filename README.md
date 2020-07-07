@@ -7,6 +7,7 @@
 - [Algorithms](#algorithms)
   - [Sorting](#sorting)
   - [Graph](#graph-algorithms)
+- [Bit Manipulation](#bit-manipulation)
 - [Runtime Analysis](#runtime-analysis)
 - [Definitions](#definitions)
 - [Number Theory](#number-theory)
@@ -432,7 +433,10 @@ while len(Q) > 0:
 
 ![Alt text](/images/kruskal.gif?raw=true "Kruskal's Algorithm")
 
-## Bitmasks
+## Bit Manipulation
+-  Bitwise Operations are faster and closer to the system and can often be used to optimize program hence why there techniques such as bitmasks explained below
+
+### Bitmasks
 * Bitmasking is a technique used to perform operations at the bit level. Leveraging bitmasks often leads to faster runtime complexity and
   helps limit memory usage
 * Test kth bit: `s & (1 << k);`
@@ -494,6 +498,12 @@ while len(Q) > 0:
 
 
 ## Problems
+### Tree Problems
+- Similar to all other problems, you want to start by first simplifying the problem 
+- For tree problems that means to a scenario where there is only a root node and two child nodes
+- Tree problems usually utilize recursion as you will want to loop until you get to leaf nodes
+
+
 ### Graph Problems
 
 #### Shortest Path Problem
@@ -529,10 +539,5 @@ while len(Q) > 0:
 
 ### Bitwise Problems
 
-
-
-Important operator for problems would be operators such as XOR which is commonly represented like ^
-
-Another common operation that is useful is shifting left and right which is done through the use of << and >> respectively
 
 ## Optimizations
