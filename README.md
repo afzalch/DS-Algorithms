@@ -364,6 +364,15 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 #### Depth First Search
 * *Depth First Search* is a graph traversal algorithm which explores as far as possible along each branch before backtracking
 * Can be done using a stack or an array of visited nodes
+* Can augment the algorithm to...
+  * Compute a graph's minimum spanning tree
+  * Detect and find cycles in a graph
+  * Check if a graph is bipartite
+  * Find strongly connect components
+  * Topologically sort the nodes of a graph
+  * Find bridges and articulation points
+  * Finding augmenting paths in a flow network
+  * Generate mazes
 * Time Complexity: `O(|V| + |E|)`
 
 ![Alt text](/images/dfsbfs.gif?raw=true "DFS / BFS Traversal")
