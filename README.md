@@ -79,10 +79,9 @@ https://github.com/TheAlgorithms
 
 ![Alt text](/images/binary-trees.png "Binary Tree")
 
-### Binary Search Tree
- * A binary search tree, sometimes called BST, is a type of binary tree which maintains the property that the value in each
-   node must be greater than or equal to any value stored in the left sub-tree, and less than or equal to any value stored
-   in the right sub-tree
+### Binary Search Tree (BST)
+ * A type of binary tree which maintains the property that the value in each
+   node must be greater than or equal to any value stored in the left sub-tree, and less than or equal to any value stored in the right sub-tree
  * Time Complexity:
    * Access: `O(log(n))`
    * Search: `O(log(n))`
@@ -96,6 +95,7 @@ https://github.com/TheAlgorithms
 * Resolves the issue of trees being unbalanced with huge difference in size of subtrees
 * Height of a node - length of longest path from the node to a leaf
 * Requires heights of left and right children of every node to differ by at most of 1  
+
 Insertions:
 1) Regular BST Insertions
 2) Fix AVL property
@@ -164,8 +164,9 @@ or equal to those of the children and the lowest key is in the root node
   which are 2-element subsets of V (i.e. an edge is associated with two vertices, and that association takes the form of the
   unordered pair comprising those two vertices)
 * Graphs can be stored in countless manners, below are some of the more common ways
-* **Adjacency Matrix**:
-* A matrix of size nxn where n is the number of nodes in the graph
+
+**Adjacency Matrix**:
+* A matrix of size *n x n* where n is the number of nodes in the graph
 * For an adjacency matrix m, the cell m[i][j] represents the weight of going from node i to node j 
 
 | Pros |  Cons |
@@ -174,7 +175,9 @@ or equal to those of the children and the lowest key is in the root node
 | Edge weight lookup is O(1) | Iterating over all the edges takes O(V<sup>2</sup>) time
 | Simplest graph representation | |
 
-* **Adjacency Lists** :
+![Alt text](/images/adjacency-matrix.JPG?raw=true "Adjacency Matrix")
+
+**Adjacency Lists** :
 * A way to represent a graph as a map from nodes to lists of edges.
 * Each node has their own list that contains each edge and weight of the edge
 
@@ -184,7 +187,9 @@ or equal to those of the children and the lowest key is in the root node
 | Iterating over all the edges is efficient | Edge weight lookup is O(E) |
 | | Slightly more complex graph representation |
 
-* **Edge List** :
+![Alt text](/images/adjacency-list.png?raw=true "Adjacency List")
+
+**Edge List** :
 * Way to represent a graph simply as an unordered list of edges
 * Assumes the notation for any triplet 
 
