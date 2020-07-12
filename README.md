@@ -71,12 +71,11 @@ https://github.com/TheAlgorithms
 * A tree with a designated root node where every node either points away from or towards the root node 
 
 ### Binary Tree
- * A *Binary Tree* is a tree data structure in which each node has at most two children, which are referred to as
-   the *left child* and *right child*
+ * Each node has at most two children, which are referred to as the *left child* and *right child*
  * **Full Tree**: a tree in which every node has either 0 or 2 children
+ * **Complete Tree**: a binary tree in which every level *except possibly the last* is full and all nodes in the last level are as far left as possible
  * **Perfect Binary Tree**: a binary tree in which all interior nodes have two children and all leave have the same depth
- * **Complete Tree**: a binary tree in which every level *except possibly the last* is full and all nodes in the last
-   level are as far left as possible
+
 
 ![Alt text](/images/binary-trees.png "Binary Tree")
 
