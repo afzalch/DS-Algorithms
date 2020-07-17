@@ -451,7 +451,20 @@ while len(Q) > 0:
 ![Alt text](/images/kruskal.gif?raw=true "Kruskal's Algorithm")
 
 ## Bit Manipulation
--  Bitwise Operations are faster and closer to the system and can often be used to optimize program hence why there techniques such as bitmasks explained below
+*  Bitwise operations are faster and closer to the system and can often be used to optimize program hence why there techniques such as bitmasks explained below
+* Operands are converted to a 32 bit integer
+* Both operands are evaluated bit by bit
+* Returns a number as a result of the evaluation
+
+**Bitwise operators:**
+* & is used to represent AND
+  * 1 if only both bits are 1
+* | is used to represent OR
+  * 1 if either bits are 1
+* ^ is used to represent XOR
+  * 1 if the two bits are different
+* ~ is used to represent NOT
+  * Inverts bit values meaning bit value will become 1 if it was 0 initially
 
 ### Bitmasks
 * Bitmasking is a technique used to perform operations at the bit level. Leveraging bitmasks often leads to faster runtime complexity and
