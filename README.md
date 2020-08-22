@@ -100,10 +100,9 @@ Insertions:
 2) Fix AVL property
 
 ### Trie
-* A trie, sometimes called a radix or prefix tree, is a kind of search tree that is used to store a dynamic set or associative
-  array where the keys are usually Strings. No node in the tree stores the key associated with that node; instead, its position 
-  in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the String associated 
-  with that node, and the root is associated with the empty String.
+* A trie, sometimes called a radix or prefix tree, is a kind of search tree that is used to store a dynamic set or associative array where the keys are usually strings. 
+* No node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. 
+* All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty String.
   
 
 ![Alt text](/images/trie.png?raw=true "Trie")
@@ -535,6 +534,10 @@ while len(Q) > 0:
 
 
 ### Graph Problems
+- Many problems in graph theory can be represented using a grid
+- An example would be 
+  - Solving a maze
+
 
 #### Shortest Path Problem
 - Given a weighted graph, find the shortest path of edges from node A to node B
