@@ -160,8 +160,7 @@ or equal to those of the children and the lowest key is in the root node
 
 ## Graphs
 * A *Graph* is an ordered pair of G = (V, E) comprising a set V of vertices or nodes together with a set E of edges or arcs,
-  which are 2-element subsets of V (i.e. an edge is associated with two vertices, and that association takes the form of the
-  unordered pair comprising those two vertices)
+  - The set E of edges are a 2-element subsets of V (i.e. an edge is associated with two vertices, and that association takes the form of the unordered pair comprising those two vertices)
 * Graphs can be stored in countless manners, below are some of the more common ways
 
 **Adjacency Matrix**:
@@ -406,8 +405,11 @@ while len(Q) > 0:
 
 
 #### Topological Sort
-* *Topological Sort* is the linear ordering of a directed graph's nodes such that for every edge from node u to node v, u
-  comes before v in the ordering
+* *Topological Sort* is the linear ordering of a directed graph's nodes such that for every edge from node u to node v, u comes before v in the ordering
+* Many real world situations can be modelled as such where some step must happen prior to another step
+  * School class prerequisites
+  * Event scheduling
+  * Assembly Instructions 
 * Time Complexity: `O(|V| + |E|)`
 
 #### Dijkstra's Algorithm
@@ -537,6 +539,10 @@ while len(Q) > 0:
 - Many problems in graph theory can be represented using a grid
 - An example would be 
   - Solving a maze
+- One advantage of using a grid is that transformations can usually be avoided
+  - Due to fact that positions in grid are referred to usually in an (x,y) pair so transformations for adjacent cells is very straight forward
+  - Can either store poisition on grid as an (x,y) pair or an easier/more efficient manner would be to make numerous queues for each dimension
+  - So for a 3 dimensional grid, create 3 queues for x, y and z dimension
 
 
 #### Shortest Path Problem
