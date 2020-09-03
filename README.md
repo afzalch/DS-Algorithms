@@ -103,8 +103,14 @@ Insertions:
 * A trie, sometimes called a radix or prefix tree, is a kind of search tree that is used to store a dynamic set or associative array where the keys are usually strings. 
 * No node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. 
 * All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty String.
-  
 
+```
+class TrieNode {
+  HashMap<Character, TrieNode> children;
+  String/char content;
+  boolean isWord;
+}
+```
 ![Alt text](/images/trie.png?raw=true "Trie")
 
 ### Fenwick Tree
@@ -405,12 +411,20 @@ while len(Q) > 0:
 
 
 #### Topological Sort
-* *Topological Sort* is the linear ordering of a directed graph's nodes such that for every edge from node u to node v, u comes before v in the ordering
+* *Topological Sort* is the linear ordering of a directed acyclic graph's nodes such that for every edge from node u to node v, u comes before v in the ordering
 * Many real world situations can be modelled as such where some step must happen prior to another step
   * School class prerequisites
   * Event scheduling
   * Assembly Instructions 
+* Topological orders are not unique
+* Can be a fancy way of saying that graph can be organized in a line such that all edges go from left to right
+* Steps:
+  * Pick an unvisisted node
+  * Perform DFS, exploring only unvisited nodes
+  * On the recursive callback, add the current node to the end of the list of topological order
 * Time Complexity: `O(|V| + |E|)`
+
+![Alt text](/images/topological-sort.gif?raw=true "Topological sort")
 
 #### Dijkstra's Algorithm
 * *Dijkstra's Algorithm* is an algorithm for finding the shortest path between nodes in a graph
