@@ -2,6 +2,8 @@
 - [Acknowledgements](#acknowledgements)
 - [Data Structures](#data-structures)
   - [Graphs](#graphs)
+    - [Types of graphs](#types-of-graphs)
+    - [Representing graphs](#representing-graphs)
 - [Dynamic Programming](#dynamic-programming)
 - [Greedy Algorithms](#greedy-algorithms)
 - [Algorithms](#algorithms)
@@ -14,6 +16,7 @@
 - [Problems](#problems)
   - [Graphs](#graph-problems)
   - [Bitwise](#bitwise-problems)
+- [Patterns](#patterns)
 - [Optimizations](#optimizations)
 
 
@@ -165,45 +168,16 @@ or equal to those of the children and the lowest key is in the root node
 ![Alt text](/images/hash.png?raw=true "Hashing")
 
 ## Graphs
-* A *Graph* is an ordered pair of G = (V, E) comprising a set V of vertices or nodes together with a set E of edges or arcs,
+* A *Graph* is an ordered pair of G = (V, E) comprising a set V of vertices or nodes together with a set E of edges or arcs.
   - The set E of edges are a 2-element subsets of V (i.e. an edge is associated with two vertices, and that association takes the form of the unordered pair comprising those two vertices)
-* Graphs can be stored in countless manners, below are some of the more common ways
 
-**Adjacency Matrix**:
-* A matrix of size *n x n* where n is the number of nodes in the graph
-* For an adjacency matrix m, the cell m[i][j] represents the weight of going from node i to node j 
-
-| Pros |  Cons |
-|---|---------| 
-| Space efficient for dense graphs (complete graphs) | Requires O(V<sup>2</sup>) space|
-| Edge weight lookup is O(1) | Iterating over all the edges takes O(V<sup>2</sup>) time
-| Simplest graph representation | |
-
-![Alt text](/images/adjacency-matrix.JPG?raw=true "Adjacency Matrix")
-
-**Adjacency Lists** :
-* A way to represent a graph as a map from nodes to lists of edges.
-* Each node has their own list that contains each edge and weight of the edge
-
-| Pros |  Cons |
-|---|---------| 
-| Space efficient for sparse graphs (complete graphs) | Not very space efficient for dense graphs|
-| Iterating over all the edges is efficient | Edge weight lookup is O(E) |
-| | Slightly more complex graph representation |
-
-![Alt text](/images/adjacency-list.png?raw=true "Adjacency List")
-
-**Edge List** :
-* Way to represent a graph simply as an unordered list of edges
-* Assumes the notation for any triplet 
-
-
-* There are numerous different types of graphs which are shown and explained in more depth below
+### Types of graphs
 
 
 #### Undirected Graph: 
 * a graph in which the adjacency relation is symmetric. So if there exists an edge from node u to node
  v (u -> v), then it is also the case that there exists an edge from node v to node u (v -> u)
+* A **tree** is an undirected graph with no cycles
 #### Directed Graph: 
 * a graph in which the adjacency relation is not symmetric. So if there exists an edge from node u to node v
  (u -> v), this does *not* imply that there exists an edge from node v to node u (v -> u)
@@ -230,6 +204,37 @@ or equal to those of the children and the lowest key is in the root node
 * It is denoted using K<sub>n</sub> as shown by images below
 
 <img src="/images/complete-graphs.png?raw=true" alt="Graph" width="600" height="225">
+
+### Representing graphs
+
+**Adjacency Matrix**:
+* A matrix of size *n x n* where n is the number of nodes in the graph
+* For an adjacency matrix m, the cell m[i][j] represents the weight of going from node i to node j 
+
+| Pros |  Cons |
+|---|---------| 
+| Space efficient for dense graphs (complete graphs) | Requires O(V<sup>2</sup>) space|
+| Edge weight lookup is O(1) | Iterating over all the edges takes O(V<sup>2</sup>) time
+| Simplest graph representation | |
+
+![Alt text](/images/adjacency-matrix.JPG?raw=true "Adjacency Matrix")
+
+**Adjacency Lists** :
+* A way to represent a graph as a map from nodes to lists of edges.
+* Each node has their own list that contains each edge and weight of the edge
+
+| Pros |  Cons |
+|---|---------| 
+| Space efficient for sparse graphs | Not very space efficient for dense graphs|
+| Iterating over all the edges is efficient | Edge weight lookup is O(E) |
+| | Slightly more complex graph representation |
+
+![Alt text](/images/adjacency-list.png?raw=true "Adjacency List")
+
+**Edge List** :
+* Way to represent a graph simply as an unordered list of edges
+* Assumes the notation for any triplet 
+
 
 ## Dynamic Programming
 * Will always result in optimal solution, it would go through all possible solutions and return optimal solution
@@ -280,7 +285,7 @@ fib(n):
 
 3) Bottom-up
 *  Does exact same computation as memoized version
-* topologJical sort of the subproblem dependency DAG
+* ~~topological sort of the subproblem dependency DAG~~
 
 ````
 memo = {} // dictionary where stored values will be 
@@ -370,18 +375,34 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 ### Graph Algorithms
 
 #### Depth First Search (DFS)
-* A graph traversal algorithm which explores as far as possible along each branch before backtracking
+* A graph traversal algorithm which explores as far as possible along each branch/path before backtracking
 * Can be done using a stack and an array of visited nodes
+* Choose an unvisited node from current node/location until that is not possible which is when algorithm has you backtrack (hence why we use a stack and not a queue)
 * Can augment the algorithm to...
   * Compute a graph's minimum spanning tree
   * Detect and find cycles in a graph
   * Check if a graph is bipartite
-  * Find strongly connect components
+  * Find strongly connected components
   * Topologically sort the nodes of a graph
   * Find bridges and articulation points
   * Finding augmenting paths in a flow network
   * Generate mazes
-* Time Complexity: `O(|V| + |E|)`
+* Time Complexity: `O(V + E)`
+
+```
+# Global or class scope variables
+n = number of nodes in the graph
+g = adjacency list representing graph
+visited = [false, ..., false] # size n
+
+function dfs(root):
+  if visited[root]: return
+  visited[root] = true
+
+  neighbours = graph[root]
+  for next in neighbours:
+    dfs(next)
+```
 
 ![Alt text](/images/dfsbfs.gif?raw=true "DFS / BFS Traversal")
 
@@ -392,7 +413,7 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 * Used for level order problems (ie. )
 * Particularly useful for 
   * Finding the **shortest path on unweighted graphs**      
-* Time Complexity: `O(|V| + |E|)`
+* Time Complexity: `O(V + E)`
 
 Python using a list as a queue
 ```
@@ -412,6 +433,7 @@ while len(Q) > 0:
 
 #### Topological Sort
 * *Topological Sort* is the linear ordering of a directed acyclic graph's nodes such that for every edge from node u to node v, u comes before v in the ordering
+* **Every tree has a toplogical ordering since they don't contain any cycles**
 * Many real world situations can be modelled as such where some step must happen prior to another step
   * School class prerequisites
   * Event scheduling
@@ -422,23 +444,37 @@ while len(Q) > 0:
   * Pick an unvisisted node
   * Perform DFS, exploring only unvisited nodes
   * On the recursive callback, add the current node to the end of the list of topological order
-* Time Complexity: `O(|V| + |E|)`
+* Time Complexity: `O(V + E)`
+
+Pseudocode:
+
+1) Pick an unvisited node
+2) Begin with selected node, do a depth first search exploring only unvisited nodes
+3) On recursive callback of the DFS, add the current node to the topological ordering in reverse order.
 
 ![Alt text](/images/topological-sort.gif?raw=true "Topological sort")
 
 #### Dijkstra's Algorithm
-* *Dijkstra's Algorithm* is an algorithm for finding the shortest path between nodes in a graph
-* Time Complexity: `O(|V|^2)`
+* *Dijkstra's Algorithm* is an algorithm for finding the shortest path between nodes in a graph for graphs with **non-negative edge weights**.
+* Time Complexity: `O(V^2)`, if optimized can be `O(E*log(V))`
+
+Pseudocode:
+
+1) Maintain a dist array where distance to every node is positive infinity. Distance for start node is set to 0
+2) Maintain a priority queue (PQ) of key-value pairs of (node index, distance) pairs which tell you which node to visit next based on sorted min value
+3) Insert (s,0) into the PQ and loop while PQ is not empty pulling out the next most promising pair
+4) Iterate over all outgoing edges from the current node and relax each edge appending to a new (node index, distance) key-value pair to the PQ for every relaxation.
+
+The issue with the above is the fact that there will be duplicate keys in the PQ because it's more efficient to insert a new key-value pair in `O(log(n))` than it is to update an existing key's value in `O(n)`. The more efficient method would be to use an indexed priority queue which allows searching in constant time and updates in log time. It would ensure that there are no duplicate keys in the priority queue. 
 
 ![Alt text](/images/dijkstra.gif?raw=true "Dijkstra's")
 
 #### Bellman-Ford Algorithm
 * *Bellman-Ford Algorithm* is an algorithm that computes the shortest paths from a single source node to all other nodes in a weighted graph
-* Although it is slower than Dijkstra's, it is more versatile, as it is capable of handling graphs in which some of the edge weights are
-  negative numbers
+* Although it is slower than Dijkstra's, it is more versatile, as it is capable of handling graphs in which the edge weights are negative numbers
 * Time Complexity:
-  * Best Case: `O(|E|)`
-  * Worst Case: `O(|V||E|)`
+  * Best Case: `O(E)`
+  * Worst Case: `O(VE)`
 
 ![Alt text](/images/bellman-ford.gif?raw=true "Bellman-Ford")
 
@@ -550,18 +586,22 @@ while len(Q) > 0:
 
 
 ### Graph Problems
-- Many problems in graph theory can be represented using a grid
+- Many problems in graph theory can be represented using a grid which are an implicit graph 
 - An example would be 
   - Solving a maze
 - One advantage of using a grid is that transformations can usually be avoided
   - Due to fact that positions in grid are referred to usually in an (x,y) pair so transformations for adjacent cells is very straight forward
-  - Can either store poisition on grid as an (x,y) pair or an easier/more efficient manner would be to make numerous queues for each dimension
+  - Can either store position on grid as an (x,y) pair or an easier/more efficient manner would be to make numerous queues for each dimension
   - So for a 3 dimensional grid, create 3 queues for x, y and z dimension
 
 
 #### Shortest Path Problem
 - Given a weighted graph, find the shortest path of edges from node A to node B
-- Algorithms: BFS (unweighted graph), Dijkstra's, Bellman-Ford, Floyd-Warshall, A<sup>*</sup>, and more
+- Algorithms: BFS (unweighted graph), Dijkstra's, Bellman-Ford, Floyd-Warshall, A<sup>*</sup>, and more  
+
+DAG:
+- Single Source Shortest Path problem can be solved in O(V+E) time by ordering in topological manner 
+- Longest path can be done by multiplying all edge weights by -1 before using single source shortest path algorithm before multiplying all edges by -1 once again
 
 #### Connectivity
 - Does there exist a path between node A and node B
@@ -592,5 +632,8 @@ while len(Q) > 0:
 
 ### Bitwise Problems
 
+## Patterns
+
+### Sliding Window
 
 ## Optimizations
