@@ -16,7 +16,7 @@
 - [Problems](#problems)
   - [Graphs](#graph-problems)
   - [Bitwise](#bitwise-problems)
-- [Patterns](#patterns)
+- [Shortest Path Algo](#shortest-path-algorithms)
 - [Optimizations](#optimizations)
 
 
@@ -338,7 +338,7 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
 * Stable: `No`
 * Time Complexity:
   * Best Case: `O(nlog(n))`
-  * Worst Case: `O(n^2)`
+  * Worst Case: `O(n<sup>2</sup>)`
   * Average Case: `O(nlog(n))`
 
 ![Alt text](/images/quicksort.gif?raw=true "Quicksort")
@@ -359,7 +359,7 @@ Dynamic programming simply takes the brute force approach, identifies repeated w
   is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm
 * Time Complexity:
   * Best Case: `Ω(n + k)`
-  * Worst Case: `O(n^2)`
+  * Worst Case: `O(n<sup>2</sup>)`
   * Average Case:`Θ(n + k)`
 
 ![Alt text](/images/bucketsort.png?raw=true "Bucket Sort")
@@ -456,7 +456,7 @@ Pseudocode:
 
 #### Dijkstra's Algorithm
 * *Dijkstra's Algorithm* is an algorithm for finding the shortest path between nodes in a graph for graphs with **non-negative edge weights**.
-* Time Complexity: `O(V^2)`, if optimized can be `O(E*log(V))`
+* Time Complexity: `O(V<sup>2</sup>)`, if optimized can be `O(E*log(V))`
 
 Pseudocode:
 
@@ -497,14 +497,33 @@ Pseudocode:
 * Can find the shortest path between all pairs of nodes
 * A single execution of the algorithm will find the lengths (summed weights) of the shortest paths between *all* pairs of nodes
 * Time Complexity:
-  * Best Case: `O(|V|^3)`
-  * Worst Case: `O(|V|^3)`
-  * Average Case: `O(|V|^3)`
+  * Best Case: `O(V<sup>3)`
+  * Worst Case: `O(V<sup>3)`
+  * Average Case: `O(V<sup>3)`
+* Space Complexity:
+  * O(V<sup>2</sup>)
+
+Optimal way to represent our graph is with a 2D adjacency matrix *m* where 
+cell m[i][j] - edge weight from node i to node j
+* Weight from a node to itself is set to 0
+* If there is no edge between 2 nodes, set value to +∞
+
+Goal is to eventually consider going throug hall possible intermediate nodes on paths of different lengths
+Use dynamic programming by storing results in a 3D matrix of size n x n x n in variable **dp**
+
+**dp[k][i][j] = shortest path from i to j routing through nodes {0,1,..,k-1,k}**
+
+Start with k=0, build up, this gradually builds our optimal solution. 
+Our end goal is actually **dp[n-1]** 2D matrix
+
+Space complexity can be improved by computing solution for k in-place saving us a dimension making space complexity go from *O(V<sup>3</sup>)* to *O(V<sup>2</sup>)*.
+dp[i][j] = m[i][j] if k=0 otherwise
+dp[i][j] = min(dp[i][j], dp[i][k]+dp[k][j]) 
 
 #### Prim's Algorithm
 * *Prim's Algorithm* is a greedy algorithm that finds a minimum spanning tree for a weighted undirected graph. In other words, Prim's find a
   subset of edges that forms a tree that includes every node in the graph
-* Time Complexity: `O(|V|^2)`
+* Time Complexity: `O(|V|<sup>2)`
 
 ![Alt text](/images/prim.gif?raw=true "Prim's Algorithm")
 
@@ -526,7 +545,7 @@ Pseudocode:
   * 1 if only both bits are 1
 * | is used to represent OR
   * 1 if either bits are 1
-* ^ is used to represent XOR
+* <sup> is used to represent XOR
   * 1 if the two bits are different
 * ~ is used to represent NOT
   * Inverts bit values meaning bit value will become 1 if it was 0 initially
@@ -537,7 +556,7 @@ Pseudocode:
 * Test kth bit: `s & (1 << k);`
 * Set kth bit: `s |= (1 << k);`
 * Turn off kth bit: `s &= ~(1 << k);`
-* Toggle kth bit: `s ^= (1 << k);`
+* Toggle kth bit: `s <sup>= (1 << k);`
 * Multiple by 2<sup>n</sup>: `s << n;`
 * Divide by 2<sup>n</sup>: `s >> n;`
 * Intersection: `s & t;`
@@ -547,9 +566,9 @@ Pseudocode:
 * Extract lowest unset bit: `~s & (s + 1);`
 * Swap Values:
              ```
-                x ^= y;
-                y ^= x;
-                x ^= y;
+                x <sup>= y;
+                y <sup>= x;
+                x <sup>= y;
              ```
 
 ## Runtime Analysis
@@ -646,7 +665,18 @@ DAG:
 
 ### Bitwise Problems
 
-## Patterns
+## Shortest Path Algorithms
+
+| | BFS | Dijkstra's |  Bellman Ford | Floyd Warshall |
+| --- | --- | --- | --- | --- | 
+| Complexity | O(V+E) | O((V+E)logV) | O(VE) | O(V<sup>3</sup>)
+| Recommended graph size | Large | Large/Medium | Medium/Small | Small
+| Good for APSP | Only works on unweighted graphs | Ok | Bad | Yes
+| Detects negative cycles | No | No | Yes | Yes
+| SP on graph with weighted edges | Incorrect answer | Best | Works | Bad in general
+| SP on graph with unweighted edges | Best | Ok | Bad | Bad in general
+
+*APSP* - All pair shortest path
 
 ### Sliding Window
 
