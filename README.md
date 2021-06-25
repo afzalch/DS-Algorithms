@@ -476,11 +476,25 @@ The issue with the above is the fact that there will be duplicate keys in the PQ
   * Best Case: `O(E)`
   * Worst Case: `O(VE)`
 
+Pseudocode: 
+**E** - number of edges
+**V** - number of vertices
+**S** - id of the starting node
+**D** - array of size V that tracks the best distance from S to each node
+
+1) Set every entry in D to +∞
+2) Set D[S]=0
+3) Relax each edge V-1 times
+
+![Alt text](/images/bellman-ford.PNG "Bellman-Ford")
+
+*The edges do not need to be chosen in any specific order*
+
 ![Alt text](/images/bellman-ford.gif?raw=true "Bellman-Ford")
 
 #### Floyd-Warshall Algorithm
-* *Floyd-Warshall Algorithm* is an algorithm for finding the shortest paths in a weighted graph with positive or negative edge weights, but
-  no negative cycles
+* *Floyd-Warshall Algorithm* is an algorithm for finding the shortest paths for all pairs in a weighted graph with positive or negative edge weights, but no negative cycles 
+* Can find the shortest path between all pairs of nodes
 * A single execution of the algorithm will find the lengths (summed weights) of the shortest paths between *all* pairs of nodes
 * Time Complexity:
   * Best Case: `O(|V|^3)`
