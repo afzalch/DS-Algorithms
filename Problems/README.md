@@ -67,10 +67,30 @@ def find_averages_of_subarrays(K, arr):
 ```
 
 ### Two Pointers
+- Sorted arrays or linkedlists in which we need to find a set of elements that fulfull certain constraints
 
+![Alt text](../images/pair-with-target-sum.PNG?raw=true "Pair with target sum")
+
+Python
+```
+def pair_with_targetsum(arr, target_sum):
+  left, right = 0, len(arr) - 1
+  while(left < right):
+    current_sum = arr[left] + arr[right]
+    if current_sum == target_sum:
+      return [left, right]
+
+    if target_sum > current_sum:
+      left += 1  # we need a pair with a bigger sum
+    else:
+      right -= 1  # we need a pair with a smaller sum
+  return [-1, -1]
+```
 
 ### Fast and slow pointers
-
+- Pointer algorithm that uses two pointers which move at different speeds
+- By moving at different speeds, algorithm proves that two pointers are bound to meet 
+- Useful when dealing with cyclic LinkedLists or arrays
 
 ### Merge Intervals
 
